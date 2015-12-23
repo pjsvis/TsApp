@@ -1,0 +1,29 @@
+{
+  "name": "TsApp",
+  "description": "A sample typescript angular 1.* app with a gulp build chain.",
+  "main": "index.html",
+  "authors": [
+    "pjsvis <peter@visibility.net>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/pjsvis/TsApp",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+   "dependencies": {
+      "jquery": "~2.1.4",
+      "angular": "~1.4.8",
+      "angular-animate": "~1.4.8",
+      "angular-route": "~1.4.8",
+      "angular-sanitize": "~1.4.8",
+      "angular-toastr": "~1.6.0",
+      "angular-tree-control": "~0.2.23",
+      "ag-grid": "~2.3.5"
+   }
+}

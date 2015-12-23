@@ -5,24 +5,26 @@ var beep = require("beepbeep")();
 var gutil = require("gulp-util");
 var del = require("del");
 
-var onError = function (err) {
+// TODO: See the ref on how to use plumber to do this
+var onError = function(err) {
    beep([0, 0, 0]);
    gutil.log(gutil.colors.green(err));
 };
 
-gulp.task("echo", function() { console.log("Hello Gulp!")  });
+gulp.task("echo", function() { console.log("Hello Gulp!") });
 
 // gulp-tasks
 function getTask(task, config) {
-   return require("./gulp-tasks/" + task)(gulp, config);
+   return require("./gulp-tasks/" + task)(config);
 }
 
-var cleanConfig= {
+// clean build dir
+var cleanConfig = {
    buildDir: "./build"
-}
+};
 gulp.task("clean", getTask("clean", cleanConfig));
 
-// compile bootstrap
+// compile bootstrap to css/bootstrap.css
 var bsConfig = {
    src: "app/less/bootstrap.less",
    dest: "./css",
@@ -30,9 +32,9 @@ var bsConfig = {
 };
 gulp.task("bootstrap", getTask("bootstrap", bsConfig));
 
-// compile app ts
+// compile app.ts to dist/app.js
 var outDir = "dist";
-var outFile = "build.js";
+var outFile = "app.js";
 var expectedFile = outDir + "/" + outFile;
 var expected = [expectedFile, expectedFile + ".map"]; // No sourceMaps yet!
 var tsConfig = {
@@ -45,49 +47,45 @@ var tsConfig = {
 gulp.task("ts-compile", getTask("ts-compile", tsConfig));
 gulp.task("ts-lint", getTask("ts-lint", {}));
 
-// TODO: Figure out how to get ng-annotate to run after we have ts-compile
+// TODO: drop this and just leave our app unminified
 gulp.task("ng-annotate", getTask("ng-annotate", {}));
 
-// add angular templates to template cache
+// add angular templates to template cache app/templates.js
 var ngConfig = {
    src: "app/templates/**/*.html",
-   output: "app/templates.js",    // NOTE: We can't use *.ts 
+   output: "app/templates.js", // NOTE: We can't use *.ts 
    moduleName: "templates",
    dest: "public"
-}
+};
 gulp.task("ng-templates", getTask("ng-templates", ngConfig));
 
+// put bower dependencies in ./dist/build.*
 var mbfConfig = {
    paths: {
       bowerDirectory: "bower_components",
       bowerrc: ".bowerrc",
       bowerJson: "bower.json"
    }
-}
+};
 var bConfig = {
    mbfConfig: mbfConfig,
-   dest: "dist"
+   dest: "dist",
+   outFileJs: "bower.js",
+   outFileCss: "bower.css"
+
 };
 gulp.task("bower-js", getTask("bower-js", bConfig));
 gulp.task("bower-css", getTask("bower-css", bConfig));
-
-
-// Add *.js and * .css bower dependencies
-//var wiredepConfig = {
-//   cwd: "./"
-
-//};
 
 var wdConfig = {
    src: "index.html",
    dest: "./"
 };
-
 var wiredep = require("gulp-wiredep", {});
 gulp.task("wiredep", function() {
    gulp.src("index.html")
       .pipe(wiredep({
-     
+      
       }))
       .pipe(gulp.dest("./"));
 });
@@ -115,10 +113,21 @@ gulp.task("inDebug", [(inDebug ? "build-debug" : "build-release")]);
 // TODO: Add ng-annotate and uglify to the build task
 gulp.task("default", ["bootstrap"]);
 // TODO: Add a watch to the test task
-gulp.task("test", ["echo", "ts-lint", "ts-compile", "bootstrap"]);
+gulp.task("test", [
+   "echo",
+   "ts-lint",
+   "ts-compile",
+   "bootstrap"
+]);
 
 // TODO: Fix ts-compile issue with implicit any in ng-templates
-gulp.task("all", ["clean", "bootstrap", "ts-lint", "ng-templates", "ts-compile", "wiredep", "bower-js", "bower-css"]);
-
-
-
+gulp.task("all", [
+   "clean",
+   "bootstrap",
+   "ts-lint",
+   "ng-templates",
+   "ts-compile",
+   "wiredep",
+   "bower-css",
+   "bower-js"
+]);

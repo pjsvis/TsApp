@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "beepbeep": "^1.2.0",
+    "colors": "^1.1.2",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.8.0",

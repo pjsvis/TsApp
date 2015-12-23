@@ -2,7 +2,7 @@
 var gulp = require("gulp");
 var tslint = require("gulp-tslint");
 
-module.exports = function(gulp, config) {
+module.exports = function(config) {
    return function() {
       gulp.src("app/**/*.module.ts")
        .pipe(tslint())

@@ -5,7 +5,7 @@ var expect = require("gulp-expect-file");
 var sourcemaps = require("gulp-sourcemaps");
 var less = require("gulp-less");
 
-module.exports = function(gulp, config) {
+module.exports = function(config) {
    return function () {
       console.log("Compiling bootstrap:\n", config);
       gulp.src(config.src)
