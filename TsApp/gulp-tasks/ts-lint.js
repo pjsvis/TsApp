@@ -1,10 +1,11 @@
-var gulp = require('gulp');
-var tslint = require('gulp-tslint');
+///<reference path="../typings/tsd.d.ts"/>
+var gulp = require("gulp");
+var tslint = require("gulp-tslint");
 
-module.exports = function(gulp, plugins) {
+module.exports = function(gulp, config) {
    return function() {
-      gulp.src('app/**/*.module.ts')
+      gulp.src("app/**/*.module.ts")
        .pipe(tslint())
-       .pipe(tslint.report('prose'));
+       .pipe(tslint.report("prose"));
    }
 }

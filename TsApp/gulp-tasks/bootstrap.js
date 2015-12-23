@@ -5,15 +5,15 @@ var expect = require("gulp-expect-file");
 var sourcemaps = require("gulp-sourcemaps");
 var less = require("gulp-less");
 
-module.exports = function(gulp, plugins, config) {
+module.exports = function(gulp, config) {
    return function () {
-      console.log("Compiling bootstrap:", config);
+      console.log("Compiling bootstrap:\n", config);
       gulp.src(config.src)
          .pipe(expect(config.src))
          .pipe(sourcemaps.init())
          .pipe(less())
          .pipe(sourcemaps.write("/"))
          .pipe(gulp.dest(config.dest))
-      .pipe(expect(["css/bootstrap.css", "css/bootstrap.css.map"]));
+         .pipe(expect(config.expected));
    };
 };

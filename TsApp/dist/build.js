@@ -22,8 +22,8 @@ window.onload = function () {
     greeter.start();
 };
 
-///<reference path="../typings/tsd.d.ts"/>
-angular.module('app').controller('TestController', function () {
+/// <reference path="../typings/tsd.d.ts" />
+angular.module("app").controller("TestController", function () {
 });
 
 //# sourceMappingURL=build.js.map

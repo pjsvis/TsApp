@@ -22,30 +22,44 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\example\template.html" />
     <Content Include="css\app.css" />
     <Content Include="app\less\bootstrap.less" />
     <Content Include="app\less\variables.less" />
     <Content Include="app\less\other.less" />
     <Content Include="css\bootstrap.css.map" />
+    <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
     <None Include="gulpfile.js" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="gulp-tasks\bower-css.js" />
+    <Content Include="gulp-tasks\bower-js.js" />
+    <Content Include="gulp-tasks\ng-templates.js" />
     <Content Include="gulp-tasks\bootstrap.js" />
+    <Content Include="gulp-tasks\clean.js" />
     <Content Include="gulp-tasks\ng-annotate.js" />
     <Content Include="gulp-tasks\ts-lint.js" />
-    <Content Include="gulp-tasks\compile-ts.js" />
+    <Content Include="gulp-tasks\ts-compile.js" />
     <Content Include="gulp-tasks\vendor.js" />
+    <Content Include="gulp-tasks\wiredep.js" />
     <Content Include="index.html" />
     <Content Include="js\lodash.min.js" />
+    <Content Include="server.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\temp.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="typings\gulp-less\gulp-less.d.ts" />
+    <TypeScriptCompile Include="typings\gulp\gulp.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="typings\moment\moment-node.d.ts" />
     <TypeScriptCompile Include="typings\moment\moment.d.ts" />
+    <TypeScriptCompile Include="typings\node\node.d.ts" />
+    <TypeScriptCompile Include="typings\orchestrator\orchestrator.d.ts" />
+    <TypeScriptCompile Include="typings\q\Q.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +76,10 @@
   <ItemGroup>
     <Folder Include="app\directives\" />
     <Folder Include="app\services\" />
+    <Folder Include="build\" />
+    <Folder Include="dist\" />
+    <Folder Include="public\" />
+    <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
