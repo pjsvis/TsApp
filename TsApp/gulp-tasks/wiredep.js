@@ -1,6 +1,8 @@
 /// <reference path="../typings/tsd.d.ts" />
 var gulp = require("gulp");
-var wiredep = require("gulp-wiredep").stream;
+var wiredep = require("gulp-wiredep");
+var gutil = require("gulp-util");
+var expect = require("gulp-expect-file");
 
 // Add *.js and * .css bower dependencies
 var wiredepOptions = {
@@ -10,13 +12,13 @@ var wiredepOptions = {
 module.exports = function(config) {
    return function () {
       // TODO: Use wiredep options
-      //console.log("Starting wiredep:\n", config);
+
       gulp.task("wiredep", function () {
-         gulp.src("index.html")
+         gulp.src(config.src)
             .pipe(wiredep({
 
             }))
-            .pipe(gulp.dest("./"));
+            .pipe(gulp.dest(config.dest));
       });
    };
 };

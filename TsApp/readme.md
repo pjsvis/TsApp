@@ -1,6 +1,6 @@
 ﻿## Introduction
 
-This project aims to put together a bunch of reuseable grunt tasks that  are used to build an MVC5 angular typescript app with a number of custom bootstrap files.
+This project aims to put together a bunch of reuseable gulp tasks that  are used to build an MVC-5 angular typescript app with a number of custom bootstrap files.
 
 Each of the gulp tasks is in the gulp-tasks folder. 
 

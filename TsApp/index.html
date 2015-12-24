@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-   <meta charset="utf-8"/>
-   <title>TypeScript HTML App</title>
-   <!-- bower:css -->
-   <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-   <link rel="stylesheet" href="bower_components/angular-tree-control/css/tree-control.css" />
-   <link rel="stylesheet" href="bower_components/ag-grid/dist/ag-grid.css" />
-   <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-fresh.css" />
-   <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-blue.css" />
-   <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-dark.css" />
-   <!-- endbower -->
-   <link href="css/bootstrap.css" rel="stylesheet"/>
-   <link href="css/app.css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-gif" href="favicon.gif" />
+    <title>Project Template</title>
+    <!-- localhost:45000#!watch to get live updates of css changes -->
+    <script src="node_modules/less/dist/less.min.js"></script>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="bower_components/angular-tree-control/css/tree-control.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/ag-grid.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-fresh.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-blue.css" />
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-dark.css" />
+    <!-- endbower -->
 
-
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- endinject -->
 </head>
+
 <body ng-app="app" ng-strict-di>
-<h1>TypeScript HTML App</h1>
 
-<div id="content">
+    <div class="container">
 
+    </div>
+    <!-- bower dependencies -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/angular-tree-control/angular-tree-control.js"></script>
+    <script src="bower_components/ag-grid/dist/ag-grid.js"></script>
+    <!-- endbower -->
 
-</div>
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-<script src="bower_components/angular-tree-control/angular-tree-control.js"></script>
-<script src="bower_components/ag-grid/dist/ag-grid.js"></script>
-<!-- endbower -->
-
-<script src="dist/build.js"></script>
+    <!-- app dependencies -->
+    <!-- inject:js -->
+    <script src="/app/app.module.js"></script>
+    <script src="/app/temp.js"></script>
+    <!-- endinject -->
 </body>
+
 </html>

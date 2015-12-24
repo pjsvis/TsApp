@@ -22,33 +22,44 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\templates\example\template.html" />
+    <Content Include="app\directives\javascript.directive.js" />
+    <Content Include="app\services\javascript.service.js" />
+    <Content Include="app\templates\template.html" />
     <Content Include="css\app.css" />
     <Content Include="app\less\bootstrap.less" />
     <Content Include="app\less\variables.less" />
     <Content Include="app\less\other.less" />
-    <Content Include="css\bootstrap.css.map" />
     <Content Include="bower.json" />
     <Content Include=".bowerrc" />
+    <Content Include="gulp-tasks\app-inject.js" />
+    <Content Include="gulp-tasks\ts-clean.js" />
+    <Content Include="gulp-tasks\ts-compile.js" />
+    <Content Include="less\common-other.less" />
+    <Content Include="less\bootstrap\custom-variables.less" />
+    <Content Include="less\bootstrap\bootstrap.less" />
     <None Include="gulpfile.js" />
     <Content Include="css\bootstrap.css" />
     <Content Include="gulp-tasks\bower-css.js" />
     <Content Include="gulp-tasks\bower-js.js" />
     <Content Include="gulp-tasks\ng-templates.js" />
-    <Content Include="gulp-tasks\bootstrap.js" />
+    <Content Include="gulp-tasks\less-bootstrap.js" />
     <Content Include="gulp-tasks\clean.js" />
     <Content Include="gulp-tasks\ng-annotate.js" />
     <Content Include="gulp-tasks\ts-lint.js" />
-    <Content Include="gulp-tasks\ts-compile.js" />
-    <Content Include="gulp-tasks\vendor.js" />
+    <Content Include="gulp-tasks\ts-concat.js" />
     <Content Include="gulp-tasks\wiredep.js" />
     <Content Include="index.html" />
     <Content Include="js\lodash.min.js" />
     <Content Include="server.js" />
+    <Content Include="src\index.html" />
+    <Content Include="WE-Markdown.css" />
     <Content Include="web.config" />
+    <Content Include="workflow.md" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\directives\typescript.directive.ts" />
+    <TypeScriptCompile Include="app\services\typescript.directive.ts" />
     <TypeScriptCompile Include="app\temp.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="typings\gulp-less\gulp-less.d.ts" />
@@ -74,12 +85,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
-    <Folder Include="app\services\" />
     <Folder Include="build\" />
     <Folder Include="dist\" />
     <Folder Include="public\" />
-    <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

@@ -24,13 +24,27 @@ var cleanConfig = {
 };
 gulp.task("clean", getTask("clean", cleanConfig));
 
+// todo: get a list of the folders in ./less
+
 // compile bootstrap to css/bootstrap.css
-var bsConfig = {
+var lbConfig = {
    src: "app/less/bootstrap.less",
    dest: "./css",
-   expected: ["css/bootstrap.css", "css/bootstrap.css.map"]
+   expected: ["css/bootstrap.css"]
 };
-gulp.task("bootstrap", getTask("bootstrap", bsConfig));
+gulp.task("less-bootstrap", getTask("less-bootstrap", lbConfig));
+
+
+// Clean tsc generated *.js and *.js.map files 
+var tscConfig = {
+glob: "./app/**/*.ts",
+mapFiles: "./app/**/*.js.map",
+src: ["./app/app.module.ts", "./app/**/*.ts"],
+outDir: "./app"
+};
+gulp.task("ts-clean", getTask("ts-clean", tscConfig));
+gulp.task("ts-lint", getTask("ts-lint", { }));
+gulp.task("ts-compile", getTask("ts-compile", tscConfig));
 
 // compile app.ts to dist/app.js
 var outDir = "dist";
@@ -44,8 +58,10 @@ var tsConfig = {
    outDir: outDir,
    expected: expected
 };
-gulp.task("ts-compile", getTask("ts-compile", tsConfig));
-gulp.task("ts-lint", getTask("ts-lint", {}));
+gulp.task("ts-concat", getTask("ts-concat", tsConfig));
+
+
+
 
 // TODO: drop this and just leave our app unminified
 gulp.task("ng-annotate", getTask("ng-annotate", {}));
@@ -77,18 +93,13 @@ var bConfig = {
 gulp.task("bower-js", getTask("bower-js", bConfig));
 gulp.task("bower-css", getTask("bower-css", bConfig));
 
+
 var wdConfig = {
-   src: "index.html",
+   src: "./index.html",
    dest: "./"
 };
-var wiredep = require("gulp-wiredep", {});
-gulp.task("wiredep", function() {
-   gulp.src("index.html")
-      .pipe(wiredep({
-      
-      }))
-      .pipe(gulp.dest("./"));
-});
+gulp.task("wiredep", getTask("wiredep", wdConfig));
+
 // TODO: Fix this
 //gulp.task("wiredep", getTask("wiredep", wdConfig));
 
@@ -131,3 +142,13 @@ gulp.task("all", [
    "bower-css",
    "bower-js"
 ]);
+
+var aiConfig = {
+   src: "./index.html",
+   sources: ["./app/**/*.js", "./css/*.css"],
+   dest: "./"
+};
+gulp.task("app-inject", getTask("app-inject", aiConfig));
+
+
+
