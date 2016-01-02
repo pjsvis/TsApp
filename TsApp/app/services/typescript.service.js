@@ -4,4 +4,4 @@ angular.module("app").factory('ExampleFactory', function () {
     return {};
 });
 
-//# sourceMappingURL=typescript.directive.js.map
+//# sourceMappingURL=typescript.service.js.map

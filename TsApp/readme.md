@@ -10,16 +10,18 @@ The gulpfile.js file has a method that configures a task, gets it and allows it 
 
 So far we have the following in gulp-tasks:
 
+1. app-inject
 1. bower-css
 1. bower-js
-1. bootstrap: creates a custom bootstrap file TODO: Add options to use more than one customisation
+1. bower-wiredep
 1. clean
+1. less-bootstrap: creates a custom bootstrap file TODO: Add options to use more than one customisation
 1. ng-annotate
 1. ng-templates
-1. ts-compile-dev: Build *.js from *.ts and create source maps
-1. ts-compile-rel: Build a single app.js file
+1. ts-clean
+1. ts-compile: Build *.js from *.ts and create source maps
+1. ts-concat: Build a single app.js file
 1. ts-lint
-1. vendor
 1. wiredep 
 
 In gulpfile.js we have:

@@ -31,13 +31,13 @@
     <Content Include="app\less\other.less" />
     <Content Include="bower.json" />
     <Content Include=".bowerrc" />
+    <Content Include="favicon.gif" />
     <Content Include="gulp-tasks\app-inject.js" />
     <Content Include="gulp-tasks\ts-clean.js" />
     <Content Include="gulp-tasks\ts-compile.js" />
     <Content Include="less\common-other.less" />
     <Content Include="less\bootstrap\custom-variables.less" />
     <Content Include="less\bootstrap\bootstrap.less" />
-    <None Include="gulpfile.js" />
     <Content Include="css\bootstrap.css" />
     <Content Include="gulp-tasks\bower-css.js" />
     <Content Include="gulp-tasks\bower-js.js" />
@@ -47,11 +47,10 @@
     <Content Include="gulp-tasks\ng-annotate.js" />
     <Content Include="gulp-tasks\ts-lint.js" />
     <Content Include="gulp-tasks\ts-concat.js" />
-    <Content Include="gulp-tasks\wiredep.js" />
+    <Content Include="gulp-tasks\bower-wiredep.js" />
     <Content Include="index.html" />
     <Content Include="js\lodash.min.js" />
     <Content Include="server.js" />
-    <Content Include="src\index.html" />
     <Content Include="WE-Markdown.css" />
     <Content Include="web.config" />
     <Content Include="workflow.md" />

@@ -1,20 +1,17 @@
+/// <reference path="../typings/tsd.d.ts" />
+///<reference path="../gulpfile.js"/>
 var gulp = require("gulp");
 var gutil = require("gulp-util");
 var del = require("del");
-var mkdirp = require("mkdirp");
-var colors = require("colors");
 
 module.exports = function (config) {
-   return function () {
-      console.log("clean".yellow);
-      gulp.task("clean", function (cb) {
-         gutil.log("Delete the build folder");
-         return del([config.buildDir], cb);
-      });
-      mkdirp(config.buildDir, function (err) {
-         var result = "Created an empty " + config.buildDir;
-         console.log(result.yellow);
-      });
-
-   };
+    return function () {
+        gutil.log("clean".yellow);
+        gulp.task("clean", function (cb) {
+            var initMsg = "Deleted " + config.dist;
+            gutil.log(initMsg.yellow);
+            // Use del.sync
+            return del(config.dist, cb);
+        });
+    };
 };
